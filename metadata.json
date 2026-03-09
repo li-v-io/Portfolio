@@ -1,0 +1,5 @@
+{
+  "name": "Portfolio",
+  "description": "An interactive portfolio website where navigation is controlled by moving chess pieces on a board.",
+  "requestFramePermissions": []
+}
