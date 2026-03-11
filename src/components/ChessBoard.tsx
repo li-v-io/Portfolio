@@ -21,16 +21,6 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
   const selectedPiece = pieces.find(p => p.id === selectedPieceId);
 
   const handleSquareClick = (x: number, y: number) => {
-    // Check if it's a target square first for direct navigation
-    const target = TARGET_SQUARES.find(t => t.x === x && t.y === y);
-    if (target) {
-      setMessage({ text: `Loading ${target.label}...`, type: 'success' });
-      setTimeout(() => {
-        onSectionChange(target.sectionId as SectionId);
-      }, 300);
-      return;
-    }
-
     if (selectedPieceId) {
       const isLegal = legalMoves.some(m => m.x === x && m.y === y);
       

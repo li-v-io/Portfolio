@@ -24,35 +24,42 @@ const PortfolioSection: React.FC = () => (
           desc: "Exploration of digital surrealism and abstract visual narratives.", 
           tech: ["Digital Art", "Creative Coding", "Visuals"], 
           link: "https://li-v-io.itch.io/domain-of-hallucination",
-          image: "https://picsum.photos/seed/hallucination/800/500"
+          image: "/portfolio/Domainofhallucination.png"
         },
         { 
           title: "Divinactics", 
           desc: "Interactive user experience design focusing on intuitive digital interfaces.", 
           tech: ["UI/UX", "Interaction", "Prototyping"], 
           link: "https://www.behance.net/gallery/215727583/Divinactics",
-          image: "https://picsum.photos/seed/divinactics/800/500"
+          image: "/portfolio/Divinactics.png"
         },
         { 
           title: "Nuclear Playtime", 
           desc: "Experimental game design project exploring high-energy visual aesthetics.", 
           tech: ["Game Design", "3D", "Visuals"], 
           link: "https://www.behance.net/gallery/215732523/Nuclear-Playtime",
-          image: "https://picsum.photos/seed/nuclear/800/500"
+          image: "/portfolio/NuclearPlaytime.png"
         },
         { 
-          title: "AR Drums & Piano", 
+          title: "AR Drums", 
           desc: "Augmented reality musical instruments allowing for immersive performance.", 
           tech: ["AR", "Unity", "Interaction"], 
           link: "https://www.behance.net/gallery/215794111/AR-Drums",
-          image: "https://picsum.photos/seed/drums/800/500"
+          image: "/portfolio/ARDrums.png"
+        },
+        { 
+          title: "AR Piano", 
+          desc: "Augmented reality musical instruments allowing for immersive performance.", 
+          tech: ["AR", "Unity", "Interaction"], 
+          link: "https://www.behance.net/gallery/215793875/AR-Piano",
+          image: "/portfolio/ARPiano.png"
         },
         { 
           title: "HorrAR", 
           desc: "An immersive AR horror experience pushing the boundaries of mobile spatial computing.", 
           tech: ["AR", "Mobile", "Experience"], 
           link: "https://www.behance.net/gallery/215795255/HorrAR",
-          image: "https://picsum.photos/seed/horror/800/500"
+          image: "/portfolio/HorrAR.png"
         },
         { 
           title: "Beautiful Mathematics", 
@@ -67,6 +74,20 @@ const PortfolioSection: React.FC = () => (
           tech: ["Graphic Design", "Digital", "Assets"], 
           link: "https://www.behance.net/gallery/215622203/Kickstart-visual-design",
           image: "https://picsum.photos/seed/kickstart/800/500"
+        },
+        { 
+          title: "Cinema 4D", 
+          desc: "A collection of 3D modeling and rendering projects using Cinema 4D.", 
+          tech: ["3D", "Cinema 4D", "Rendering"], 
+          link: "https://www.behance.net/gallery/215633223/Cinema-4D",
+          image: "https://picsum.photos/seed/c4d/800/500"
+        },
+        { 
+          title: "Hypnotica", 
+          desc: "An exploration of hypnotic visuals and abstract motion graphics.", 
+          tech: ["Motion Graphics", "Abstract", "Visuals"], 
+          link: "https://www.behance.net/gallery/215730303/Hypnotica",
+          image: "/portfolio/hypnotica.png"
         },
       ].map((project, i) => (
         <motion.a
