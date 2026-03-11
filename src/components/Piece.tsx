@@ -22,7 +22,7 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     if (hasPng) {
       return (
         <img 
-          src={`/${type}.png`} 
+          src={`./${type}.png`} 
           alt={`${color} ${type}`}
           style={{ 
             width: size, 
