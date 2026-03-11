@@ -11,6 +11,8 @@ interface PieceProps {
 }
 
 const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
+  const [imgError, setImgError] = React.useState(false);
+
   const getIcon = () => {
     const defaultSize = 36;
     const rookSize = 30; // Smaller as requested
@@ -19,20 +21,21 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
 
     // Use PNGs for pieces that have them in /public
     const hasPng = ['knight', 'queen', 'rook'].includes(type);
-    if (hasPng) {
-      const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-      const assetPath = `${baseUrl}/${type}.png`;
+    
+    if (hasPng && !imgError) {
+      // Use relative path since base is './'
+      const assetPath = `./${type}.png`;
       return (
         <img 
           src={assetPath} 
           alt={`${color} ${type}`}
+          onError={() => setImgError(true)}
           style={{ 
             width: size, 
             height: size, 
             filter: color === 'black' ? 'brightness(0.3) contrast(1.2)' : 'none',
             objectFit: 'contain'
           }}
-          referrerPolicy="no-referrer"
         />
       );
     }

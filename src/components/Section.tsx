@@ -9,8 +9,8 @@ interface SectionProps {
 }
 
 const getAssetPath = (path: string) => {
-  const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-  return `${baseUrl}/${path.replace(/^\//, '')}`;
+  // Use relative path since base is './'
+  return `./${path.replace(/^\//, '')}`;
 };
 
 const PortfolioSection: React.FC = () => (

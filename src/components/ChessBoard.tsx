@@ -102,7 +102,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
 
         {isTargetSquare && (
           <div className="target-square-highlight flex items-center justify-center border-2 border-black/10">
-            <span className="text-[7px] sm:text-[10px] font-black uppercase text-black text-center leading-none px-0.5 tracking-tighter drop-shadow-sm break-words max-w-full">
+            <span className="text-[6px] sm:text-[10px] font-black uppercase text-black text-center leading-none px-0.5 tracking-tighter drop-shadow-sm break-words max-w-full">
               {targetSquare.label}
             </span>
           </div>
