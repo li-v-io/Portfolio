@@ -20,10 +20,9 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     // Use PNGs for pieces that have them in /public
     const hasPng = ['knight', 'queen', 'rook'].includes(type);
     if (hasPng) {
-      const baseUrl = import.meta.env.BASE_URL;
       return (
         <img 
-          src={`${baseUrl}${type}.png`} 
+          src={`./${type}.png`} 
           alt={`${color} ${type}`}
           style={{ 
             width: size, 
