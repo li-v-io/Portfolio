@@ -20,10 +20,11 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     // Use PNGs for pieces that have them in /public
     const hasPng = ['knight', 'queen', 'rook'].includes(type);
     if (hasPng) {
-      const baseUrl = import.meta.env.BASE_URL;
+      const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const assetPath = `${baseUrl}/${type}.png`;
       return (
         <img 
-          src={`${baseUrl}${type}.png`} 
+          src={assetPath} 
           alt={`${color} ${type}`}
           style={{ 
             width: size, 
@@ -49,7 +50,6 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
 
   return (
     <motion.div
-      layoutId={`piece-${type}`}
       className={`relative cursor-pointer flex flex-col items-center justify-center z-10 ${isSelected ? 'scale-110' : ''}`}
       onClick={(e) => {
         e.stopPropagation();

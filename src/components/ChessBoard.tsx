@@ -102,7 +102,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
 
         {isTargetSquare && (
           <div className="target-square-highlight flex items-center justify-center border-2 border-black/10">
-            <span className="text-[10px] font-black uppercase text-black text-center leading-tight px-1 tracking-tighter drop-shadow-sm">
+            <span className="text-[7px] sm:text-[10px] font-black uppercase text-black text-center leading-none px-0.5 tracking-tighter drop-shadow-sm break-words max-w-full">
               {targetSquare.label}
             </span>
           </div>
@@ -130,9 +130,9 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-2xl mx-auto">
-      <div className="w-full bg-card-bg p-4 rounded-xl border border-white/10 shadow-2xl">
-        <div className="chess-board rounded-lg overflow-hidden">
+    <div className="flex flex-col items-center gap-4 sm:gap-8 w-full max-w-2xl mx-auto px-2">
+      <div className="w-full bg-card-bg p-2 sm:p-4 rounded-xl border border-white/10 shadow-2xl overflow-hidden">
+        <div className="chess-board rounded-lg overflow-hidden w-full h-full">
           {board}
         </div>
       </div>

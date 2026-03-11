@@ -8,6 +8,11 @@ interface SectionProps {
   onBack: () => void;
 }
 
+const getAssetPath = (path: string) => {
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return `${baseUrl}/${path.replace(/^\//, '')}`;
+};
+
 const PortfolioSection: React.FC = () => (
   <div className="space-y-8">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -17,77 +22,77 @@ const PortfolioSection: React.FC = () => (
           desc: "A comprehensive visual identity and branding project for a local craft business.", 
           tech: ["Branding", "Graphic Design", "Typography"], 
           link: "https://www.behance.net/gallery/215895895/Schleiferei-Gossau",
-          image: "/Portfolio/portfolio/SchleifereiCozzio.png"
+          image: getAssetPath("portfolio/SchleifereiCozzio.png")
         },
         { 
           title: "Domain Of Hallucination", 
           desc: "Exploration of digital surrealism and abstract visual narratives.", 
           tech: ["Digital Art", "Creative Coding", "Visuals"], 
           link: "https://li-v-io.itch.io/domain-of-hallucination",
-          image: `${import.meta.env.BASE_URL}portfolio/Domainofhallucination.png`
+          image: getAssetPath("portfolio/Domainofhallucination.png")
         },
         { 
           title: "Divinactics", 
           desc: "Interactive user experience design focusing on intuitive digital interfaces.", 
           tech: ["UI/UX", "Interaction", "Prototyping"], 
           link: "https://www.behance.net/gallery/215727583/Divinactics",
-          image: `${import.meta.env.BASE_URL}portfolio/Divinactics.png`
+          image: getAssetPath("portfolio/Divinactics.png")
         },
         { 
           title: "Nuclear Playtime", 
           desc: "Experimental game design project exploring high-energy visual aesthetics.", 
           tech: ["Game Design", "3D", "Visuals"], 
           link: "https://www.behance.net/gallery/215732523/Nuclear-Playtime",
-          image: `${import.meta.env.BASE_URL}portfolio/NuclearPlaytime.png`
+          image: getAssetPath("portfolio/NuclearPlaytime.png")
         },
         { 
           title: "AR Drums", 
           desc: "Augmented reality musical instruments allowing for immersive performance.", 
           tech: ["AR", "Unity", "Interaction"], 
           link: "https://www.behance.net/gallery/215794111/AR-Drums",
-          image: `${import.meta.env.BASE_URL}portfolio/ARDrums.png`
+          image: getAssetPath("portfolio/ARDrums.png")
         },
         { 
           title: "AR Piano", 
           desc: "Augmented reality musical instruments allowing for immersive performance.", 
           tech: ["AR", "Unity", "Interaction"], 
           link: "https://www.behance.net/gallery/215793875/AR-Piano",
-          image: `${import.meta.env.BASE_URL}portfolio/ARPiano.png`
+          image: getAssetPath("portfolio/ARPiano.png")
         },
         { 
           title: "HorrAR", 
           desc: "An immersive AR horror experience pushing the boundaries of mobile spatial computing.", 
           tech: ["AR", "Mobile", "Experience"], 
           link: "https://www.behance.net/gallery/215795255/HorrAR",
-          image: `${import.meta.env.BASE_URL}portfolio/HorrAR.png`
+          image: getAssetPath("portfolio/HorrAR.png")
         },
         { 
           title: "Beautiful Mathematics", 
           desc: "Visualizing complex mathematical patterns through algorithmic art.", 
           tech: ["Creative Coding", "Math", "Generative"], 
           link: "https://www.behance.net/gallery/215796911/Beautiful-Mathematics",
-          image: `${import.meta.env.BASE_URL}portfolio/BeautifulMathematics.png`
+          image: getAssetPath("portfolio/BeautifulMathematics.png")
         },
         { 
           title: "Kickstart Visual Design", 
           desc: "A collection of high-impact visual assets for modern digital platforms.", 
           tech: ["Graphic Design", "Digital", "Assets"], 
           link: "https://www.behance.net/gallery/215622203/Kickstart-visual-design",
-          image: `${import.meta.env.BASE_URL}portfolio/KickStartVisualDesign.png`
+          image: getAssetPath("portfolio/KickStartVisualDesign.png")
         },
         { 
           title: "Cinema 4D", 
           desc: "A collection of 3D modeling and rendering projects using Cinema 4D.", 
           tech: ["3D", "Cinema 4D", "Rendering"], 
           link: "https://www.behance.net/gallery/215633223/Cinema-4D",
-          image: `${import.meta.env.BASE_URL}portfolio/Cinema4D.png`
+          image: getAssetPath("portfolio/Cinema4D.png")
         },
         { 
           title: "Hypnotica", 
           desc: "An exploration of hypnotic visuals and abstract motion graphics.", 
           tech: ["Motion Graphics", "Abstract", "Visuals"], 
           link: "https://www.behance.net/gallery/215730303/Hypnotica",
-          image: `${import.meta.env.BASE_URL}portfolio/hypnotica.png`
+          image: getAssetPath("portfolio/hypnotica.png")
         },
       ].map((project, i) => (
         <motion.a
@@ -349,7 +354,7 @@ const Section: React.FC<SectionProps> = ({ id, onBack }) => {
     >
       {/* Decorative background piece */}
       <div className="absolute -right-20 -bottom-20 opacity-[0.03] pointer-events-none select-none">
-        <img src={`${import.meta.env.BASE_URL}queen.png`} alt="" className="w-96 h-96 grayscale" referrerPolicy="no-referrer" />
+        <img src={getAssetPath("queen.png")} alt="" className="w-96 h-96 grayscale" referrerPolicy="no-referrer" />
       </div>
 
       <div className="flex items-center justify-between mb-12 relative z-10">
