@@ -24,8 +24,8 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     
     if (hasPng && !imgError) {
       const baseUrl = import.meta.env.BASE_URL || '/';
-      const cleanBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
-      const assetPath = `${cleanBase}${type}.png`;
+      const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      const assetPath = `${cleanBase}/${type}.png`;
       return (
         <img 
           src={assetPath} 
