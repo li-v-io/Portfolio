@@ -17,7 +17,7 @@ const PortfolioSection: React.FC = () => (
           desc: "A comprehensive visual identity and branding project for a local craft business.", 
           tech: ["Branding", "Graphic Design", "Typography"], 
           link: "https://www.behance.net/gallery/215895895/Schleiferei-Gossau",
-          image: `${import.meta.env.BASE_URL}portfolio/SchleifereiCozzio.png`
+          image: "/Portfolio/portfolio/SchleifereiCozzio.png"
         },
         { 
           title: "Domain Of Hallucination", 
