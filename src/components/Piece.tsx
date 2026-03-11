@@ -23,8 +23,9 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     const hasPng = ['knight', 'queen', 'rook'].includes(type);
     
     if (hasPng && !imgError) {
-      // Use relative path since base is './'
-      const assetPath = `./${type}.png`;
+      const baseUrl = import.meta.env.BASE_URL || '/';
+      const cleanBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+      const assetPath = `${cleanBase}${type}.png`;
       return (
         <img 
           src={assetPath} 

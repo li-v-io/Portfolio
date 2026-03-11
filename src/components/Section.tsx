@@ -9,8 +9,10 @@ interface SectionProps {
 }
 
 const getAssetPath = (path: string) => {
-  // Use relative path since base is './'
-  return `./${path.replace(/^\//, '')}`;
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return cleanBase + cleanPath;
 };
 
 const PortfolioSection: React.FC = () => (
@@ -110,7 +112,6 @@ const PortfolioSection: React.FC = () => (
               src={project.image} 
               alt={project.title} 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
               <ExternalLink size={24} className="text-white" />
@@ -354,7 +355,7 @@ const Section: React.FC<SectionProps> = ({ id, onBack }) => {
     >
       {/* Decorative background piece */}
       <div className="absolute -right-20 -bottom-20 opacity-[0.03] pointer-events-none select-none">
-        <img src={getAssetPath("queen.png")} alt="" className="w-96 h-96 grayscale" referrerPolicy="no-referrer" />
+        <img src={getAssetPath("queen.png")} alt="" className="w-96 h-96 grayscale" />
       </div>
 
       <div className="flex items-center justify-between mb-12 relative z-10">
