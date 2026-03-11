@@ -24,42 +24,42 @@ const PortfolioSection: React.FC = () => (
           desc: "Exploration of digital surrealism and abstract visual narratives.", 
           tech: ["Digital Art", "Creative Coding", "Visuals"], 
           link: "https://li-v-io.itch.io/domain-of-hallucination",
-          image: "./portfolio/Domainofhallucination.png"
+          image: `${import.meta.env.BASE_URL}portfolio/Domainofhallucination.png`
         },
         { 
           title: "Divinactics", 
           desc: "Interactive user experience design focusing on intuitive digital interfaces.", 
           tech: ["UI/UX", "Interaction", "Prototyping"], 
           link: "https://www.behance.net/gallery/215727583/Divinactics",
-          image: "./portfolio/Divinactics.png"
+          image: `${import.meta.env.BASE_URL}portfolio/Divinactics.png`
         },
         { 
           title: "Nuclear Playtime", 
           desc: "Experimental game design project exploring high-energy visual aesthetics.", 
           tech: ["Game Design", "3D", "Visuals"], 
           link: "https://www.behance.net/gallery/215732523/Nuclear-Playtime",
-          image: "./portfolio/NuclearPlaytime.png"
+          image: `${import.meta.env.BASE_URL}portfolio/NuclearPlaytime.png`
         },
         { 
           title: "AR Drums", 
           desc: "Augmented reality musical instruments allowing for immersive performance.", 
           tech: ["AR", "Unity", "Interaction"], 
           link: "https://www.behance.net/gallery/215794111/AR-Drums",
-          image: "./portfolio/ARDrums.png"
+          image: `${import.meta.env.BASE_URL}portfolio/ARDrums.png`
         },
         { 
           title: "AR Piano", 
           desc: "Augmented reality musical instruments allowing for immersive performance.", 
           tech: ["AR", "Unity", "Interaction"], 
           link: "https://www.behance.net/gallery/215793875/AR-Piano",
-          image: "./portfolio/ARPiano.png"
+          image: `${import.meta.env.BASE_URL}portfolio/ARPiano.png`
         },
         { 
           title: "HorrAR", 
           desc: "An immersive AR horror experience pushing the boundaries of mobile spatial computing.", 
           tech: ["AR", "Mobile", "Experience"], 
           link: "https://www.behance.net/gallery/215795255/HorrAR",
-          image: "./portfolio/HorrAR.png"
+          image: `${import.meta.env.BASE_URL}portfolio/HorrAR.png`
         },
         { 
           title: "Beautiful Mathematics", 
@@ -87,7 +87,7 @@ const PortfolioSection: React.FC = () => (
           desc: "An exploration of hypnotic visuals and abstract motion graphics.", 
           tech: ["Motion Graphics", "Abstract", "Visuals"], 
           link: "https://www.behance.net/gallery/215730303/Hypnotica",
-          image: "./portfolio/hypnotica.png"
+          image: `${import.meta.env.BASE_URL}portfolio/hypnotica.png`
         },
       ].map((project, i) => (
         <motion.a
@@ -349,7 +349,7 @@ const Section: React.FC<SectionProps> = ({ id, onBack }) => {
     >
       {/* Decorative background piece */}
       <div className="absolute -right-20 -bottom-20 opacity-[0.03] pointer-events-none select-none">
-        <img src="./queen.png" alt="" className="w-96 h-96 grayscale" referrerPolicy="no-referrer" />
+        <img src={`${import.meta.env.BASE_URL}queen.png`} alt="" className="w-96 h-96 grayscale" referrerPolicy="no-referrer" />
       </div>
 
       <div className="flex items-center justify-between mb-12 relative z-10">
