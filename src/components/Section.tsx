@@ -30,7 +30,7 @@ const PortfolioSection: React.FC = () => (
           title: "Domain Of Hallucination", 
           desc: "Exploration of digital surrealism and abstract visual narratives.", 
           tech: ["Digital Art", "Creative Coding", "Visuals"], 
-          link: "https://li-v-io.itch.io/domain-of-hallucination",
+          link: "https://store.steampowered.com/app/3363580/Domain_of_Hallucination/",
           image: getAssetPath("/portfolio/Domainofhallucination.png")
         },
         { 
@@ -93,7 +93,7 @@ const PortfolioSection: React.FC = () => (
           title: "Hypnotica", 
           desc: "An exploration of hypnotic visuals and abstract motion graphics.", 
           tech: ["Motion Graphics", "Abstract", "Visuals"], 
-          link: "https://www.behance.net/gallery/215730303/Hypnotica",
+          link: "https://li-v-io.itch.io/hypnotica",
           image: getAssetPath("/portfolio/hypnotica.png")
         },
       ].map((project, i) => (
