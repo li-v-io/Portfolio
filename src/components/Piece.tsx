@@ -11,8 +11,6 @@ interface PieceProps {
 }
 
 const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
-  const [imgError, setImgError] = React.useState(false);
-
   const getIcon = () => {
     const defaultSize = 36;
     const rookSize = 30; // Smaller as requested
@@ -22,7 +20,7 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     // Use PNGs for pieces that have them in /public
     const hasPng = ['knight', 'queen', 'rook'].includes(type);
     
-    if (hasPng && !imgError) {
+    if (hasPng) {
       const baseUrl = import.meta.env.BASE_URL || '/';
       const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
       const assetPath = `${cleanBase}/${type}.png`;
@@ -30,7 +28,6 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
         <img 
           src={assetPath} 
           alt={`${color} ${type}`}
-          onError={() => setImgError(true)}
           style={{ 
             width: size, 
             height: size, 
@@ -42,9 +39,6 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     }
 
     switch (type) {
-      case 'knight': return <KnightIcon size={size} color={iconColor} />;
-      case 'rook': return <RookIcon size={size} color={iconColor} />;
-      case 'queen': return <QueenIcon size={size} color={iconColor} />;
       case 'king': return <KingIcon size={size} color={iconColor} />;
       case 'bishop': return <BishopIcon size={size} color={iconColor} />;
       case 'pawn': return <PawnIcon size={size} color={iconColor} />;
