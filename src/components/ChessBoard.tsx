@@ -29,7 +29,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
       } else {
         // If clicking another piece of ours, select it instead
         const clickedPiece = pieces.find(p => p.position.x === x && p.position.y === y);
-        if (clickedPiece) {
+        if (clickedPiece && clickedPiece.color === 'black') {
           setSelectedPieceId(clickedPiece.id);
         } else {
           setSelectedPieceId(null);
@@ -38,7 +38,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
       }
     } else {
       const clickedPiece = pieces.find(p => p.position.x === x && p.position.y === y);
-      if (clickedPiece) {
+      if (clickedPiece && clickedPiece.color === 'black') {
         setSelectedPieceId(clickedPiece.id);
       }
     }
@@ -53,6 +53,8 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
     }
   }, [selectedPieceId, pieces]);
 
+  const [showCheckmate, setShowCheckmate] = useState(false);
+
   const movePiece = (id: string, to: Position) => {
     const piece = pieces.find(p => p.id === id);
     if (!piece) return;
@@ -65,6 +67,14 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
     setLegalMoves([]);
 
     const target = TARGET_SQUARES.find(t => t.x === to.x && t.y === to.y);
+    const isCheckmateMove = id === 'queen' && to.x === 3 && to.y === 0;
+
+    if (isCheckmateMove) {
+      setShowCheckmate(true);
+      setTimeout(() => setShowCheckmate(false), 3000);
+      return;
+    }
+
     if (target) {
       setMessage({ text: `Checkmate! Loading ${target.label}...`, type: 'success' });
       setTimeout(() => {
@@ -115,7 +125,11 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
             type={piece.type}
             color={piece.color}
             isSelected={selectedPieceId === piece.id}
-            onClick={() => setSelectedPieceId(piece.id)}
+            onClick={() => {
+              if (piece.color === 'black') {
+                setSelectedPieceId(piece.id);
+              }
+            }}
           />
         )}
       </div>
@@ -130,7 +144,22 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4 sm:gap-8 w-full max-w-2xl mx-auto px-2">
+    <div className="flex flex-col items-center gap-4 sm:gap-8 w-full max-w-2xl mx-auto px-2 relative">
+      <AnimatePresence>
+        {showCheckmate && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.5 }}
+            className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none"
+          >
+            <div className="bg-emerald-500 text-white px-12 py-6 rounded-2xl shadow-2xl border-4 border-white transform -rotate-6">
+              <h3 className="text-6xl font-black italic tracking-tighter">CHECKMATE!</h3>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="w-full bg-card-bg p-2 sm:p-4 rounded-xl border border-white/10 shadow-2xl overflow-hidden">
         <div className="chess-board rounded-lg overflow-hidden w-full h-full">
           {board}
