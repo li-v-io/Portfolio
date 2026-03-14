@@ -160,6 +160,7 @@ const AboutSection: React.FC = () => (
           <li>• Creative Coding</li>
           <li>• 3D Modeling (Cinema 4D)</li>
           <li>• Adobe: Photoshop, Illustrator, InDesign</li>
+          <li>• Generative AI</li>
         </ul>
       </div>
     </div>
