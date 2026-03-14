@@ -67,7 +67,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({ onSectionChange }) => {
     setLegalMoves([]);
 
     const target = TARGET_SQUARES.find(t => t.x === to.x && t.y === to.y);
-    const isCheckmateMove = id === 'queen' && to.x === 3 && to.y === 0;
+    const isCheckmateMove = (id === 'queen' || id === 'rook') && to.y === 0 && to.x >= 0 && to.x <= 5;
 
     if (isCheckmateMove) {
       setShowCheckmate(true);
