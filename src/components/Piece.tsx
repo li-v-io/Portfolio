@@ -18,12 +18,18 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     const iconColor = color === 'white' ? '#fff' : '#1a1a1a';
 
     // Use PNGs for pieces that have them in /public
-    const hasPng = ['knight', 'queen', 'rook'].includes(type);
+    let imageType = type as string;
+    if (color === 'white') {
+      if (type === 'pawn') imageType = 'rook';
+      if (type === 'king') imageType = 'queen';
+    }
+    
+    const hasPng = ['knight', 'queen', 'rook'].includes(imageType);
     
     if (hasPng) {
       const baseUrl = import.meta.env.BASE_URL || '/';
       const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-      const assetPath = `${cleanBase}/${type}.png`;
+      const assetPath = `${cleanBase}/${imageType}.png`;
       return (
         <img 
           src={assetPath} 
@@ -48,13 +54,13 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
 
   return (
     <motion.div
-      className={`relative cursor-pointer flex flex-col items-center justify-center z-10 ${isSelected ? 'scale-110' : ''}`}
+      className={`relative flex flex-col items-center justify-center z-10 ${color === 'black' ? 'cursor-pointer' : 'cursor-default'} ${isSelected ? 'scale-110' : ''}`}
       onClick={(e) => {
         e.stopPropagation();
         onClick();
       }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={color === 'black' ? { scale: 1.1 } : {}}
+      whileTap={color === 'black' ? { scale: 0.9 } : {}}
     >
       <div className={`p-1 rounded-full transition-all duration-200 ${isSelected ? 'bg-yellow-400/50 shadow-lg shadow-yellow-400/20' : 'drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]'}`}>
         {getIcon()}
