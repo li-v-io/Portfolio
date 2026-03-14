@@ -50,7 +50,7 @@ export default function App() {
             transition={{ delay: 0.3 }}
             className="mt-4 text-xs uppercase tracking-[0.3em] text-gray-500 font-mono"
           >
-            Grandmaster of design
+            Interactive Designer & Creative Developer
           </motion.p>
         </div>
       </header>
