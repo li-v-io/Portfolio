@@ -159,8 +159,7 @@ const AboutSection: React.FC = () => (
           <li>• UI/UX Design</li>
           <li>• Creative Coding</li>
           <li>• 3D Modeling (Cinema 4D)</li>
-          <li>• Full-Stack Development</li>
-          <li>• Adobe Creative Suite</li>
+          <li>• Adobe: Photoshop, Illustrator, InDesign</li>
         </ul>
       </div>
     </div>
