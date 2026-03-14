@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import ChessBoard from './components/ChessBoard';
 import Section from './components/Section';
@@ -6,6 +6,27 @@ import { SectionId } from './types';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('home');
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.hash.replace('#/', '') || 'home';
+      setActiveSection(path as SectionId);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    // Initial load
+    handlePopState();
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const handleSectionChange = (section: SectionId) => {
+    setActiveSection(section);
+    const path = section === 'home' ? '' : `#/${section}`;
+    window.history.pushState({ section }, '', path || window.location.pathname);
+  };
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-accent selection:text-black">
@@ -63,13 +84,13 @@ export default function App() {
                   ))}
                 </div>
               </div>
-              <ChessBoard onSectionChange={setActiveSection} />
+              <ChessBoard onSectionChange={handleSectionChange} />
             </motion.div>
           ) : (
             <Section 
               key="section" 
               id={activeSection} 
-              onBack={() => setActiveSection('home')} 
+              onBack={() => handleSectionChange('home')} 
             />
           )}
         </AnimatePresence>
