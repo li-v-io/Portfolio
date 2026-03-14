@@ -31,4 +31,23 @@ export const INITIAL_PIECES: ChessPiece[] = [
     sectionId: 'contact',
     label: 'Contact',
   },
+  // White pieces for checkmate scenario
+  {
+    id: 'white-pawn-h7',
+    type: 'pawn',
+    color: 'white',
+    position: { x: 7, y: 1 }, // h7
+  },
+  {
+    id: 'white-pawn-g7',
+    type: 'pawn',
+    color: 'white',
+    position: { x: 6, y: 1 }, // g7
+  },
+  {
+    id: 'white-king-h8',
+    type: 'king',
+    color: 'white',
+    position: { x: 7, y: 0 }, // h8
+  },
 ];
