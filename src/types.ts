@@ -12,8 +12,8 @@ export interface ChessPiece {
   color: Color;
   position: Position;
   targetPosition?: Position;
-  sectionId: string;
-  label: string;
+  sectionId?: string;
+  label?: string;
 }
 
 export type SectionId = 'portfolio' | 'about' | 'contact' | 'home';
