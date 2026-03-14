@@ -20,11 +20,11 @@ const Piece: React.FC<PieceProps> = ({ type, color, isSelected, onClick }) => {
     // Use PNGs for pieces that have them in /public
     let imageType = type as string;
     if (color === 'white') {
-      if (type === 'pawn') imageType = 'rook';
-      if (type === 'king') imageType = 'queen';
+      if (type === 'pawn') imageType = 'whitepawn';
+      if (type === 'king') imageType = 'whiteking';
     }
     
-    const hasPng = ['knight', 'queen', 'rook'].includes(imageType);
+    const hasPng = ['knight', 'queen', 'rook', 'whitepawn', 'whiteking'].includes(imageType);
     
     if (hasPng) {
       const baseUrl = import.meta.env.BASE_URL || '/';
